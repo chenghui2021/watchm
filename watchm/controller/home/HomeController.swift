@@ -5,10 +5,8 @@
 //  Created by Mos Dev Mac on 2021/7/13.
 //
 
-import UIKit
-
-class HomeController: UIViewController {
-    
+import UIKit 
+class HomeController: UIViewController { 
     @IBOutlet weak var mNavBackground: UIImageView!
     @IBOutlet weak var funView: UICollectionView!
     
@@ -19,9 +17,12 @@ class HomeController: UIViewController {
         // Do any additional setup after loading the view.
         funView.register(ItemCollection.self, forCellWithReuseIdentifier: "itemview")
         
+        print("ack\(MZCiphers.wordDateTime(dateTime: WordDateTime()).toString())")
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.navigationBar.setBackgroundImage(imageNavBar, for: .default)
     }
 }
 // Mark: Data
@@ -50,6 +51,8 @@ extension HomeController: UICollectionViewDataSource,UICollectionViewDelegate
             self.navigationController?.pushViewController(phone, animated: false)
             break
         case 2:
+            let sportRecord = storyboard?.instantiateViewController(withIdentifier : "sportRecordController") as! SportRecordController
+            self.navigationController?.pushViewController(sportRecord, animated: false)
         break
         case 3:
             let event = storyboard?.instantiateViewController(withIdentifier : "eventController") as! EventController

@@ -16,7 +16,18 @@ internal class Config {
     init() {
         
     }
-    func set(onoff : Bool) {
-        userDefault.setValue(onoff, forKey: "onoff")
+    //MARK:-ANCS
+    func setANCS(flag : UInt16) {
+        userDefault.setValue(flag, forKey: "ancs")
+    }
+    func getANCS() -> UInt16 {
+        return UInt16(userDefault.integer(forKey: "ancs"))
+    }
+    //MARK:-设备绑定记录
+    func setBindWatch(name : String) {
+        userDefault.setValue(name, forKey: "bindName")
+    }
+    func getBindWatch() -> String? {
+        return userDefault.string(forKey: "bindName") ?? ""
     }
 }

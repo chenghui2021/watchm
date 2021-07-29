@@ -29,16 +29,16 @@ class ItemCollection: UICollectionViewCell {
         self.addSubview(image)
         image.snp.makeConstraints({(make)->Void in
             make.width.height.equalTo(30)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-10)
+            make.centerX.equalTo(self)
+            make.centerY.equalTo(self).offset(-10)
         })
         textLabel.font=UIFont.systemFont(ofSize: 14);
         textLabel.textAlignment = NSTextAlignment.center
         self.addSubview(textLabel)
         textLabel.snp.makeConstraints({ (mask)->Void in
             mask.height.equalTo(20)
-            mask.left.right.equalToSuperview()
-            mask.top.equalTo(image.snp.bottom).offset(5);
+            mask.left.right.equalTo(self)
+            mask.top.equalTo(self.image.snp.bottom).offset(5);
             
         })
         

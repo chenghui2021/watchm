@@ -13,4 +13,6 @@ class EmailController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
+    @IBAction func actionOnOffChanged(_ sender: Any) {
+    }
 }
